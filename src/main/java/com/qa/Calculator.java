@@ -10,18 +10,32 @@ import java.util.List;
         private static final List<String> OPERATORS = List.of("+");
 
         public Number value(){
+
             return stack.getLast();
+
         }
+
         public void push(Object arg) {
+
             if (OPERATORS.contains(arg)) {
                 Number y = stack.removeLast();
                 Number x = stack.removeLast();
                 Double answer = null;
 
-                answer = x.doubleValue() + y.doubleValue();
+                if (arg.equals("+")) {
+                    answer = x.doubleValue() + y.doubleValue();
+                }
                 push(answer);
-            } else {
-                stack.add((Number) arg);
+
+            }
+            else {
+                try {
+                    double num = Double.parseDouble(arg.toString());
+                    stack.add((Number) arg);
+                }
+                catch (Exception e) {
+                    push("+");
+                }
             }
         }
 
