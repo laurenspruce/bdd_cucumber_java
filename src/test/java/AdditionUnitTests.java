@@ -25,7 +25,7 @@ public class AdditionUnitTests {
     }
 
     @Test
-    public void add_int_2_and_int_2_returns_3(){
+    public void add_int_2_and_int_2_returns_4(){
 
         //  Arrange
         int a = 2;
