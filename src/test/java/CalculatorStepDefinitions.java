@@ -11,10 +11,12 @@ public class CalculatorStepDefinitions {
     public void a_calculator_i_just_turned_on() {
         calc = new Calculator();
     }
+
     @When("I add {int} and {int}")
     public void i_add_and(Integer int1, Integer int2) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        calc.push(int1);
+        calc.push(int2);
+        calc.push("+");
     }
     @Then("the result is {int}")
     public void the_result_is(Integer int1) {
