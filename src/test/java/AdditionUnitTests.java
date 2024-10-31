@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class AdditionUnitTests {
 
     @Test
-    public void add_int_1_and_int_2_returns_3(){
+    public void add_int_1_and_int_2_returns_3() {
 
         //  Arrange
         int a = 1;
@@ -25,7 +25,7 @@ public class AdditionUnitTests {
     }
 
     @Test
-    public void add_int_2_and_int_2_returns_4(){
+    public void add_int_2_and_int_2_returns_4() {
 
         //  Arrange
         int a = 2;
@@ -42,6 +42,25 @@ public class AdditionUnitTests {
         //  Assert
         assertEquals(expectedAnswer, actualAnswer);
 
+    }
+
+    @Test
+    public void add_operator_results_in_addition()  {
+
+        //Arrange
+        int a = 2;
+        int b = 4;
+        Number expectedAnswer = 6.0;
+        Calculator calc = new Calculator();
+
+        //Act
+        calc.push(a);
+        calc.push(b);
+        calc.push("+");
+        Number actualAnswer = calc.value();
+
+        //Assert
+        assertEquals(expectedAnswer, actualAnswer);
     }
 
 

@@ -3,6 +3,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class CalculatorStepDefinitions {
 
     private Calculator calc;
@@ -18,11 +20,18 @@ public class CalculatorStepDefinitions {
         calc.push(int2);
         calc.push("+");
     }
-    @Then("the result is {int}")
-    public void the_result_is(Integer int1) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
+    @Then("the result is {double}")
+    public void the_result_is(double expected) {
+        Number value = calc.value();
+        assertEquals(expected, value);
     }
 
+    @When("I subtract {int} from {int}")
+    public void i_subtract_from(Integer int1, Integer int2) {
+        calc.push(int1);
+        calc.push(int2);
+        calc.push("-");
+    }
 
 }
